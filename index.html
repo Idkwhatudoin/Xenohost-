@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Hosting</title>
+    <title>xenohost.lol</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -13,6 +13,10 @@
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- MUI CDN (CSS and JS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@latest/umd/material.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@mui/material@latest/umd/material.min.js"></script>
 
     <!-- Internal CSS for Animations and Smooth Scrolling -->
     <style>
@@ -71,17 +75,31 @@
 </head>
 <body>
 
-    <!-- Topbar with Tailwind -->
-    <header class="topbar bg-gray-900 py-4 fixed w-full z-50 shadow-lg">
-        <nav>
-            <ul class="flex justify-center space-x-8">
-                <li><a href="#home" class="text-white text-lg hover:text-blue-400">Home</a></li>
-                <li><a href="#features" class="text-white text-lg hover:text-blue-400">Features</a></li>
-                <li><a href="#diagram" class="text-white text-lg hover:text-blue-400">Servers</a></li>
-                <li><a href="#pricing" class="text-white text-lg hover:text-blue-400">Pricing</a></li>
-                <li><a href="#faq" class="text-white text-lg hover:text-blue-400">FAQ</a></li>
-            </ul>
-        </nav>
+    <!-- Topbar using MUI AppBar -->
+    <header>
+        <div id="app-bar"></div>
+        <script>
+            const AppBar = MaterialUI.AppBar;
+            const Toolbar = MaterialUI.Toolbar;
+            const Typography = MaterialUI.Typography;
+            const Button = MaterialUI.Button;
+
+            const appBar = (
+                <AppBar position="fixed" style={{ backgroundColor: '#333' }}>
+                    <Toolbar>
+                        <img src="https://i.postimg.cc/L6fT3FQS/OIG2-enhanced-jpg-enhanced-removebg-preview.png" alt="Logo" style={{ width: 150, height: 'auto' }} />
+                        <div style={{ marginLeft: 'auto' }}>
+                            <Button color="inherit" href="#home">Home</Button>
+                            <Button color="inherit" href="#features">Features</Button>
+                            <Button color="inherit" href="#diagram">Servers</Button>
+                            <Button color="inherit" href="#pricing">Pricing</Button>
+                            <Button color="inherit" href="#faq">FAQ</Button>
+                        </div>
+                    </Toolbar>
+                </AppBar>
+            );
+            ReactDOM.render(appBar, document.getElementById('app-bar'));
+        </script>
     </header>
 
     <!-- Hero Section -->
@@ -101,13 +119,13 @@
                 <!-- Feature 1 -->
                 <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition">
                     <i class="fas fa-bolt text-5xl text-blue-400 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-4">Blazing Fast Performance</h3>
+                    <h3 class="text-2xl font-semibold mb-4">Fast Performance</h3>
                     <p>Optimized servers deliver maximum speed for your applications.</p>
                 </div>
                 <!-- Feature 2 -->
                 <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition">
                     <i class="fas fa-clock text-5xl text-blue-400 mb-4"></i>
-                    <h3 class="text-2xl font-semibold mb-4">99.99% Uptime Guarantee</h3>
+                    <h3 class="text-2xl font-semibold mb-4">97.99% Uptime Guarantee</h3>
                     <p>Our servers are reliable and available round the clock.</p>
                 </div>
                 <!-- Feature 3 -->
@@ -127,15 +145,15 @@
             <div class="flex justify-center space-x-6">
                 <!-- London -->
                 <div class="server-node bg-blue-400 text-black rounded-full w-32 h-32 flex items-center justify-center">
-                    London
+                    London | UK
                 </div>
                 <!-- New York -->
                 <div class="server-node bg-blue-400 text-black rounded-full w-32 h-32 flex items-center justify-center">
-                    New York
+                    Dallas | USA
                 </div>
                 <!-- Tokyo -->
                 <div class="server-node bg-blue-400 text-black rounded-full w-32 h-32 flex items-center justify-center">
-                    Tokyo
+                    Tokyo | Japan 
                 </div>
             </div>
         </div>
@@ -144,29 +162,29 @@
     <!-- Pricing Section -->
     <section class="py-20 bg-gray-800" id="pricing">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold text-white mb-12">Choose Your Plan</h2>
+            <h2 class="text-4xl font-bold text-white mb-12">Choose Your Chill.</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
                 <!-- Plan 1 -->
                 <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition">
-                    <h3 class="text-2xl font-bold mb-4">Basic Plan</h3>
-                    <p class="mb-4">1 vCPU, 2GB RAM, 50GB SSD</p>
-                    <a href="https://discord.com/invite/yourserver" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                    <h3 class="text-2xl font-bold mb-4">Startup</h3>
+                    <p class="mb-4">0.4 vCPU, 1GB RAM, 9GB SSD</p>
+                    <a href="https://discord.gg/ReZxjk2tek" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
                         Buy Now
                     </a>
                 </div>
                 <!-- Plan 2 -->
                 <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition">
-                    <h3 class="text-2xl font-bold mb-4">Pro Plan</h3>
-                    <p class="mb-4">2 vCPU, 4GB RAM, 100GB SSD</p>
-                    <a href="https://discord.com/invite/yourserver" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                    <h3 class="text-2xl font-bold mb-4">Production</h3>
+                    <p class="mb-4">0.7 vCPU, 2GB RAM, 16GB SSD</p>
+                    <a href="https://discord.gg/ReZxjk2tek" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
                         Buy Now
                     </a>
                 </div>
                 <!-- Plan 3 -->
                 <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-xl transition">
-                    <h3 class="text-2xl font-bold mb-4">Enterprise Plan</h3>
-                    <p class="mb-4">4 vCPU, 8GB RAM, 200GB SSD</p>
-                    <a href="https://discord.com/invite/yourserver" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
+                    <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                    <p class="mb-4">1 vCPU, 4GB RAM, 32GB SSD</p>
+                    <a href="https://discord.gg/ReZxjk2tek" class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition">
                         Buy Now
                     </a>
                 </div>
@@ -177,28 +195,28 @@
     <!-- FAQ Section -->
     <section class="py-20 bg-gray-900" id="faq">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold text-white mb-12">Frequently Asked Questions</h2>
+            <h2 class="text-4xl font-bold text-white mb-12">FAQs</h2>
             <div class="faq">
                 <!-- FAQ Item 1 -->
                 <div class="faq-item bg-gray-800 p-6 rounded-lg mb-4 cursor-pointer hover:bg-gray-700 transition">
-                    <h3 class="text-xl font-bold">What is the uptime guarantee?</h3>
+                    <h3 class="text-xl font-bold">What is the uptime?</h3>
                     <div class="faq-answer text-left mt-3">
-                        <p>We offer a 99.99% uptime guarantee on all hosting plans.</p>
+                        <p>We offer a 97.99% uptime guarantee on all hosting plans.</p>
                     </div>
                 </div>
                 <!-- FAQ Item 2 -->
                 <div class="faq-item bg-gray-800 p-6 rounded-lg mb-4 cursor-pointer hover:bg-gray-700 transition">
                     <h3 class="text-xl font-bold">How secure is my data?</h3>
                     <div class="faq-answer text-left mt-3">
-                        <p>Our servers provide DDoS protection and ensure encryption for all data.</p>
+                        <p>Our servers provide up to 17Tbps DDoS protection and ensure encryption for all data.</p>
                     </div>
                 </div>
                 <!-- FAQ Item 3 -->
                 <div class="faq-item bg-gray-800 p-6 rounded-lg mb-4 cursor-pointer hover:bg-gray-700 transition">
-                    <h3 class="text-xl font-bold">Can I upgrade my plan later?</h3>
+                    <h3 class="text-xl font-bold">Can I change my plan later?</h3>
                     <div class="faq-answer text-left mt-3">
-                        <p>Yes, you can upgrade your hosting plan anytime through our control panel.</p>
-                    </div>
+                        <p>Yes, you can upgrade/downgrade your hosting plan anytime through our discord.</p>
+                  </div>
                 </div>
             </div>
         </div>
@@ -218,6 +236,10 @@
             });
         });
     </script>
+
+    <!-- React and ReactDOM CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 
 </body>
 </html>
